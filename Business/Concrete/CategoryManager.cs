@@ -24,7 +24,7 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CategoryValidator))]
         public IResult Add(Category category)
         {
-            IResult result = BusinessRules.Run(CheckIfNameAlreadyExists(category.Name));
+            IResult result = BusinessRules.Run(CheckIfNameAlreadyExists(category.CategoryName));
             if (result != null) return result;
             _categories.Add(category);
             return new SuccessResult(Messages.CategoryAdded);
@@ -35,7 +35,7 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CategoryValidator))]
         public IResult Update(Category category)
         {
-            IResult result = BusinessRules.Run(CheckIfCategoryNotExists(category.Id));
+            IResult result = BusinessRules.Run(CheckIfCategoryNotExists(category.CategoryId));
             if (result != null) return result;
             _categories.Update(category);
             return new SuccessResult(Messages.CategoryUpdated);
@@ -47,12 +47,12 @@ namespace Business.Concrete
         {
             var result = BusinessRules.Run(CheckIfCategoryNotExists(id));
             if (result != null) return result;
-            _categories.Delete(_categories.Get(c => c.Id == id));
+            _categories.Delete(_categories.Get(c => c.CategoryId == id));
             return new SuccessResult(Messages.CategoryDeleted);
         }
         public IDataResult<Category> GetById(int id)
         {
-            var result = _categories.Get(c => c.Id == id);
+            var result = _categories.Get(c => c.CategoryId == id);
             if (result != null) return new SuccessDataResult<Category>(result);
             return new ErrorDataResult<Category>(Messages.CategoryNotFound);
         }
@@ -64,13 +64,13 @@ namespace Business.Concrete
 
         public IResult CheckIfNameAlreadyExists(string name)
         {
-            var result = _categories.GetAll(c => c.Name == name).Any();
+            var result = _categories.GetAll(c => c.CategoryName == name).Any();
             if (result) return new ErrorResult(Messages.NameAlreadyExists);
             return new SuccessResult();
         }
         public IResult CheckIfCategoryNotExists(int id)
         {
-            var result = _categories.Get(c => c.Id == id);
+            var result = _categories.Get(c => c.CategoryId == id);
             if (result == null) return new ErrorResult(Messages.CategoryNotFound);
             return new SuccessResult();
         }

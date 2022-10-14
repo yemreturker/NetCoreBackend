@@ -35,7 +35,7 @@ namespace Business.ValidationRules
             var list = _db.GetAll();
             foreach (var item in list.Data)
             {
-                if (item.Id == arg) return true;
+                if (item.CategoryId == arg) return true;
             }
             return false;
         }

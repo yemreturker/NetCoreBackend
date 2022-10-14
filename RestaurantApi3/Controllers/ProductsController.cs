@@ -1,12 +1,6 @@
 ﻿using Business.Abstract;
-using Business.Concrete;
-using Core.Utilities.Results;
-using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Web.Http.Controllers;
 
 namespace RestaurantApi3.Controllers
 {
