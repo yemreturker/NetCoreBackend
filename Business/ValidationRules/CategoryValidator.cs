@@ -1,10 +1,5 @@
 ﻿using Entities.Concrete;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.ValidationRules
 {
@@ -12,9 +7,9 @@ namespace Business.ValidationRules
     {
         public CategoryValidator()
         {
-            RuleFor(c => c.CategoryName).NotEmpty();
-            RuleFor(c => c.CategoryName).MinimumLength(2);
-            RuleFor(c => c.CategoryName).MaximumLength(50);
+            RuleFor(c => c.Name).NotEmpty();
+            RuleFor(c => c.Name).MinimumLength(2);
+            RuleFor(c => c.Name).MaximumLength(50);
         }
     }
 }
