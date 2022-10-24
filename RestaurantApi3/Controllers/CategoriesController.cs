@@ -1,6 +1,5 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace RestaurantApi3.Controllers
@@ -20,7 +19,7 @@ namespace RestaurantApi3.Controllers
         public ActionResult<List<Category>> Get()
         {
             var result = _categoryService.GetAll();
-            if (result.IsSuccess) Ok(result);
+            if (result.IsSuccess) return Ok(result);
             return BadRequest(result);
         }
 

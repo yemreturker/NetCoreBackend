@@ -33,6 +33,15 @@ namespace RestaurantApi3.Controllers
         }
 
         [HttpGet]
+        [Route("category")]
+        public ActionResult<Product> GetByCategoryId(int categoryId)
+        {
+            var result = _productService.ByCategoryId(categoryId);
+            if (result.IsSuccess) return Ok(result);
+            return BadRequest(result);
+        }
+
+        [HttpGet]
         [Route("details")]
         public ActionResult<Product> GetDetails(int id)
         {
@@ -55,6 +64,16 @@ namespace RestaurantApi3.Controllers
         public ActionResult Delete(int id)
         {
             var result = _productService.Delete(id);
+            if (result.IsSuccess) return Ok(result);
+            return BadRequest(result);
+        }
+
+        [HttpPost]
+        [Route("updateproductstock")]
+        public ActionResult UpdateStock(Product product, short newProductStock)
+        {
+            product.UnitsInStock = newProductStock;
+            var result = _productService.Update(product);
             if (result.IsSuccess) return Ok(result);
             return BadRequest(result);
         }

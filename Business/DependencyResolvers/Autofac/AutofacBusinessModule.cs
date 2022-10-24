@@ -7,7 +7,6 @@ using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
-using Microsoft.AspNetCore.Http;
 
 namespace Business.DependencyResolvers.Autofac
 {
@@ -26,6 +25,18 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+
+            builder.RegisterType<TableManager>().As<ITableService>();
+            builder.RegisterType<EfTableDal>().As<ITableDal>();
+
+            builder.RegisterType<OrderFicheManager>().As<IOrderFicheService>();
+            builder.RegisterType<EfOrderFicheDal>().As<IOrderFicheDal>();
+
+            builder.RegisterType<PaymentManager>().As<IPaymentService>();
+            builder.RegisterType<EfPaymentDal>().As<IPaymentDal>();
+
+            builder.RegisterType<TableItemManager>().As<ITableItemService>();
+            builder.RegisterType<EfTableItemDal>().As<ITableItemDal>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

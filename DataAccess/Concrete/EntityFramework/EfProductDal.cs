@@ -23,7 +23,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  UnitPrice = p.UnitPrice
                              };
                 ProductDetailDto? returnItem = result.SingleOrDefault(x => x.Id == id);
-                return returnItem != null ? returnItem : null;
+                return returnItem;
             }
         }
     }

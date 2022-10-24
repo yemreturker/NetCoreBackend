@@ -11,6 +11,7 @@ namespace Entities.Concrete
         public string Name { get; set; }
         public short Capasity { get; set; }
         public bool Status { get; set; }
+        public int CurrentOrderFicheId { get; set; }
         public bool isDeleted { get; set; }
     }
 }

@@ -1,11 +1,10 @@
 ﻿using Core.Entities.Concrate;
+using Core.Extensions;
 using Core.Utilities.Security.Encryption;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System;
 using System.Security.Claims;
-using Core.Extensions;
 
 namespace Core.Utilities.Security.JWT
 {

@@ -4,8 +4,8 @@ using Entities.DTOs;
 
 namespace DataAccess.Abstract
 {
-    public interface IProductDal : IEntityRepository<Product>
+    public interface ITableItemDal : IEntityRepository<TableItem>
     {
-        ProductDetailDto GetProductDetails(int id);
+        TableItemDetailDto GetDetails(int id);
     }
 }
