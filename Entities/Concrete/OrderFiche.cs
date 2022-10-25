@@ -9,7 +9,7 @@ namespace Entities.Concrete
         public int Id { get; set; }
         public int TableId { get; set; }
         public decimal TotalPrice { get; set; }
-        [MaxLength(30)]
+        [MaxLength(60)]
         public string Date { get; set; }
     }
 }

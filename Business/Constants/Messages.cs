@@ -46,5 +46,6 @@
         public static string TableItemUpdated = "Masadaki ürün güncellendi";
         
         public static string SomeInformationInvalid = "Girilen bilgiler yanlış";
+        public static string OrderFicheNotAdded = "Fiş eklenemedi";
     }
 }

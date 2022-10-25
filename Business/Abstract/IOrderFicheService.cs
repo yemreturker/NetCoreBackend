@@ -9,7 +9,7 @@ namespace Business.Abstract
         IDataResult<List<OrderFiche>> GetAll();
         IDataResult<OrderFiche> Get(int id);
         IDataResult<OrderFicheDetailDto> GetOrderFicheDetails(int id);
-        IResult Add(OrderFiche orderFiche);
+        IDataResult<OrderFiche> Add(OrderFiche orderFiche);
         IResult Update(OrderFiche orderFiche);
         IResult Delete(int id);
     }

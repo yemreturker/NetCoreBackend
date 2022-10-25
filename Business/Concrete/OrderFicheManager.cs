@@ -16,10 +16,15 @@ namespace Business.Concrete
             _orderFicheDal = orderFicheDal;
         }
 
-        public IResult Add(OrderFiche orderFiche)
+        public IDataResult<OrderFiche> Add(OrderFiche orderFiche)
         {
             _orderFicheDal.Add(orderFiche);
-            return new SuccessResult(Messages.OrderFicheAdded);
+            var result = _orderFicheDal.Get(x => x.Date == orderFiche.Date && x.TotalPrice == orderFiche.TotalPrice && x.TableId == orderFiche.TableId);
+            if (result is not null)
+            {
+                return new SuccessDataResult<OrderFiche>(result, Messages.OrderFicheAdded);
+            }
+            return new ErrorDataResult<OrderFiche>(Messages.OrderFicheNotAdded);
         }
 
         public IResult Delete(int id)
