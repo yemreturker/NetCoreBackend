@@ -7,11 +7,12 @@ namespace Entities.Concrete
     {
         [Key]
         public int Id { get; set; }
+        public int CurrentOrderFicheId { get; set; }
+
         [MaxLength(20)]
         public string Name { get; set; }
         public short Capasity { get; set; }
         public bool Status { get; set; }
-        public int CurrentOrderFicheId { get; set; }
         public bool isDeleted { get; set; }
     }
 }

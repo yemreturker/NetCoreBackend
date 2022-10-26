@@ -60,7 +60,7 @@ namespace Business.Concrete
             var result = _paymentDal.GetAll(x => x.OrderFicheId == orderFicheId);
             if (result.Count > 0 && result != null)
             {
-                return new SuccessDataResult<List<Payment>> (result);
+                return new SuccessDataResult<List<Payment>>(result);
             }
             return new ErrorDataResult<List<Payment>>(Messages.PaymentNotFound);
         }

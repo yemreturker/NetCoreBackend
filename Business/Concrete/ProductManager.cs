@@ -3,7 +3,9 @@ using Business.BusinessAspects.Autofac.Validation;
 using Business.Constants;
 using Business.ValidationRules;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -71,6 +73,7 @@ namespace Business.Concrete
             return new ErrorResult(Messages.ProductNotFound);
         }
 
+        [LogAspect(typeof(FileLogger))]
         public IDataResult<ProductDetailDto> GetProductDetails(int id)
         {
             if (_productDal.Get(x => x.Id == id) == null)

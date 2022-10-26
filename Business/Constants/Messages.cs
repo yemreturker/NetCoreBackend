@@ -44,7 +44,7 @@
         public static string TableItemDeleted = "Masadan ürün silindi";
         public static string TableItemNotFound = "Ürün bulunamadı";
         public static string TableItemUpdated = "Masadaki ürün güncellendi";
-        
+
         public static string SomeInformationInvalid = "Girilen bilgiler yanlış";
         public static string OrderFicheNotAdded = "Fiş eklenemedi";
     }
